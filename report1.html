@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report Form</title>
+  <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Report Form</h1>
+    <form id="reportForm">
+      <fieldset>
+        <legend>Reasons for Reporting:</legend>
+        <label><input type="checkbox" name="reason" value="pretending"> its spam </label><br>
+        <label><input type="checkbox" name="reason" value="under13"> i just dont like it </label><br>
+        <label><input type="checkbox" name="reason" value="scamming"> false information </label><br>
+        <label><input type="checkbox" name="reason" value="inappropriate"> Inappropriate content</label><br>
+        <label><input type="checkbox" name="reason" value="copyright"> Copyright violation</label><br>
+        <label><input type="checkbox" name="reason" value="hateSpeech"> scam or spam</label><br>
+        <label><input type="checkbox" name="reason" value="harassment"> Harassment or bullying</label><br>
+        <label><input type="checkbox" name="reason" value="somethingElse"> Something else</label><br>
+      </fieldset>
+      <button type="button" id="nextBtn">Next</button>
+    </form>
+  </div>
+  <video autoplay muted loop id="video-background">
+    <source src="3.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <script src="script2.js"></script>
+</body>
+</html>

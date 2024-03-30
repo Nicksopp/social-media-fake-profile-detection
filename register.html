@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="url"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+            margin-top: 5px;
+        }
+        .card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .card p {
+            margin: 0;
+        }
+        
+        .button-container {
+    text-align: center;
+}
+
+.next-page-button {
+    padding: 12px 24px;
+    background-color: #007bff; /* Blue background color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.next-page-button:hover {
+    background-color: #0056b3; /* Darker blue background color on hover */
+}
+    </style>
+</head>
+<body style="background-image: url('image.webp');">
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form id="registrationForm">
+            <div>
+                <label for="username">Username (Alphanumeric):</label>
+                <input type="text" id="username" name="username" pattern="[a-zA-Z0-9]+" required>
+            </div>
+            <div>
+                <label for="followers">Followers:</label>
+                <input type="number" id="followers" name="followers" required>
+            </div>
+            <div>
+                <label for="following">Following:</label>
+                <input type="number" id="following" name="following" required>
+            </div>
+            <div>
+                <label for="age">Profile Age:</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+            <div>
+                <label for="image">Profile Image URL:</label>
+                <input type="file" id="image" name="image" required>
+            </div>
+            <button type="submit" class="registerbutton">Register</button>
+        </form>
+    </div>
+    <div class="button-container">
+        <button  onclick="window.location.href = 'index.html'" class="next-page-button">Go to Next Page</button>
+    </div>
+    <div id="registrationCardsContainer" class="container">
+        <h2>Registration Cards</h2>
+        <!-- Registration cards will be added here -->
+    </div>
+    
+    <script>
+        // Function to create a registration card
+        function createRegistrationCard(formData) {
+            var card = document.createElement('div');
+            card.classList.add('card');
+            card.innerHTML = `
+                <p><strong>Username:</strong> ${formData.username}</p>
+                <p><strong>Followers:</strong> ${formData.followers}</p>
+                <p><strong>Following:</strong> ${formData.following}</p>
+                <p><strong>Age:</strong> ${formData.age}</p>
+                <p><strong>Profile Image URL:</strong> ${formData.image}</p>
+            `;
+            return card;
+        }
+
+        // Function to handle form submission
+        function handleFormSubmission(event) {
+            event.preventDefault();
+
+            // Get form data
+            var formData = {
+                username: document.getElementById('username').value,
+                followers: document.getElementById('followers').value,
+                following: document.getElementById('following').value,
+                age: document.getElementById('age').value,
+                image: document.getElementById('image').value
+            };
+
+            // Create registration card
+            var registrationCard = createRegistrationCard(formData);
+
+            // Add card to the container
+            var cardsContainer = document.getElementById('registrationCardsContainer');
+            cardsContainer.appendChild(registrationCard);
+
+            // Store card data in local storage
+            var cardsData = JSON.parse(localStorage.getItem('registrationCards')) || [];
+            cardsData.push(formData);
+            localStorage.setItem('registrationCards', JSON.stringify(cardsData));
+
+            // Reset form
+            event.target.reset();
+        }
+
+        // Add form submit event listener
+        document.getElementById('registrationForm').addEventListener('submit', handleFormSubmission);
+
+        // Display existing registration cards on page load
+        window.onload = function() {
+            var cardsData = JSON.parse(localStorage.getItem('registrationCards')) || [];
+            var cardsContainer = document.getElementById('registrationCardsContainer');
+            cardsData.forEach(function(formData) {
+                var card = createRegistrationCard(formData);
+                cardsContainer.appendChild(card);
+            });
+        };
+    </script>
+</body>
+</html>
