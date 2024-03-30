@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Image Detection</title>
+    <link rel="stylesheet" href="imagedet.css">
+</head>
+<body>
+    <video autoplay muted loop id="video-background">
+        <source src="5.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="container" id="container">
+        <h1>Fake Image Detection</h1>
+        <div class="image-input">
+            <input type="file" id="image1" accept="image/*">
+            <label for="image1">Upload Image 1</label>
+        </div>
+        <div class="image-input">
+            <input type="file" id="image2" accept="image/*">
+            <label for="image2">Upload Image 2</label>
+        </div>
+        <button id="compareButton">Compare Images</button>
+        <div id="result"></div>
+    </div>
+    <div class="popup" id="popup">
+        <span class="popup-content" id="popup-content">Real Image Detected!</span>
+    </div>
+    <script src="imagedet.js"></script>
+</body>
+</html>

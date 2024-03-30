@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #4caf50, #2196f3);
+            color: #fff;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-bottom: 30px;
+            color: #000;
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .button:hover {
+            opacity: 0.8;
+        }
+        .green {
+            background-color: #4caf50;
+            color: #fff;
+        }
+        .red {
+            background-color: #f44336;
+            color: #fff;
+        }
+        .image-container {
+            margin-top: 30px;
+        }
+        .image {
+            width: 160px;
+            height: 150px;
+            border-radius: 100%;
+            margin: 0 20px;
+            transition: transform 0.3s ease;
+        }
+        .image:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Choose an Option:</h2>
+        <button class="button green" onclick="window.location.href='https://cybercrime.gov.in/'">Report</button>
+        <button class="button red" onclick="feedback()">Blocked and Reported</button>
+        <button class="button red" onclick="window.location.href='imagedet.html'">High Risk Profile</button>
+        <div class="image-container">
+            <img class="image" src="https://www.kindpng.com/picc/m/259-2594534_mumbai-police-cyber-crime-investigation-cell-hd-png.png" alt="Image 1">
+            <img class="image" src="https://static.vecteezy.com/system/resources/previews/009/317/380/original/report-icon-logo-illustration-audit-and-analysis-symbol-template-for-graphic-and-web-design-collection-free-vector.jpg" alt="Image 2">
+        </div>
+    </div>
+
+    <script>
+        function feedback() {
+            alert("Thank you for your feedback!");
+        }
+    </script>
+</body>
+</html>
