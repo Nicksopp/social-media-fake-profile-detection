@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #842e7a;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.profile-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.profile {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(6, 90, 168, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.profile img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.profile h2 {
+    margin: 5px 0;
+}
+
+.profile p {
+    margin: 5px 0;
+}
+
+/* Different background colors for each profile */
+.profile:nth-child(odd) {
+    background-color: #d36363; /* Light gray */
+}
+
+.profile:nth-child(even) {
+    background-color: #eaff00; /* Lighter gray */
+}
